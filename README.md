@@ -1,10 +1,10 @@
-# React-JS--Crud-Mysql
+# React-JS--Login-Mysql
 
- <p align="center">
+<!--  <p align="center">
   <img src="client/src/assets/to_readme/ScrimShop.gif" width="600px">
-</p>
+</p> -->
 
-## Installation
+## Instalação
 
 ### Client
 
@@ -14,20 +14,19 @@
   
 ### Server
 
-  1. Change your mySQL database data `server/index.js`
+  1. Alterar os seus dados de base de dados mysql `server/index.js`
   2. `$ cd server`
   3. `$ npm install` or `$ yarn`
   4. `$ npm rum devStart`
   
-## Functionalities
+## Funcionalidades
 
-  + Create games in the database
-  + Read games in the database
-  + Update games in the database
-  + Delete games in the database
-  + Click card to edit and delete
+  + Criar login na base de dados. 
+  + Ler os login na base de dados. (nao implementado)
+  + Actualizar os logins na base de dados. (nao implementado)
+  + Apagar os logins na base de dados. (nao implementado)
   
-## Used Libraries
+## Bibliotecas usadas
 
 ### Front-end
 
