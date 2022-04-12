@@ -4,7 +4,7 @@
   <img src="client/src/assets/to_readme/ScrimShop.gif" width="600px">
 </p>
 
-## Installation
+## Instalação
 
 ### Client
 
@@ -14,12 +14,12 @@
   
 ### Server
 
-  1. Change your mySQL database data `server/index.js`
+  1. Alterar os seus dados de base de dados mysql `server/index.js`
   2. `$ cd server`
   3. `$ npm install` or `$ yarn`
   4. `$ npm rum devStart`
   
-## Functionalities
+## Funcionalidades
 
   + Create games in the database
   + Read games in the database
@@ -27,7 +27,7 @@
   + Delete games in the database
   + Click card to edit and delete
   
-## Used Libraries
+## Bibliotecas usadas
 
 ### Front-end
 
