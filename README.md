@@ -22,9 +22,9 @@
 ## Funcionalidades
 
   + Criar login na base de dados. 
-  + Ler os login na base de dados. 
-  + Actualizar os logins na base de dados. 
-  + Apagar os logins na base de dados. 
+  + Ler os login na base de dados. (nao implementado)
+  + Actualizar os logins na base de dados. (nao implementado)
+  + Apagar os logins na base de dados. (nao implementado)
   
 ## Bibliotecas usadas
 
