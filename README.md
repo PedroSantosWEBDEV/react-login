@@ -1,4 +1,4 @@
-# React-JS--Login-Mysql
+# React-JS-SignUp-Mysql
 
 <!--  <p align="center">
   <img src="client/src/assets/to_readme/ScrimShop.gif" width="600px">
