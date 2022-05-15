@@ -7,36 +7,40 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "login",
+  database: "react-login",
 });
 
 app.use(express.json());
 app.use(cors());
 
 app.post("/register", (req, res) => {
-  const { firstname } = req.body;
-  const { lastname } = req.body;
-  const { email } = req.body;
+  const { username } = req.body;
   const { password } = req.body;
 
-  let mysql = "INSERT INTO usuario ( firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
-  db.query(mysql, [firstname, lastname, email, password], (err, result) => {
+  let mysql = "INSERT INTO usuario ( username, password) VALUES (?, ?)";
+  db.query(mysql, [username, password], (err, result) => {
     res.send(result);
   });
 });
 
-// app.post("/search", (req, res) => {
-//   const { firstname } = req.body;
-//   const { lastname } = req.body;
-//   const { email } = req.body;
+app.post("/search", (req, res) => {
+  const { username } = req.body;
+  const { password } = req.body;
 
-//   let mysql =
-//     "SELECT * from usuario WHERE firstname = ? AND lastname = ? AND email = ?";
-//   db.query(mysql, [firstname, lastname, email], (err, result) => {
-//     if (err) res.send(err);
-//     res.send(result);
-//   });
-// });
+  let mysql =
+    "SELECT * from usuario WHERE username = ? AND password = ?";
+  db.query(mysql, [username, password], (err, result) => {
+    if (err) {
+      res.send({message: "Senha/Usuario estao errados" + err})
+
+    } 
+    if (result.length > 0) {
+      res.send(result);
+    } else {
+      res.send({message: "Senha/Usuario estao errados"})
+    }
+  });
+});
 
 // app.put("/edit", (req, res) => {
 //   const { id } = req.body;
