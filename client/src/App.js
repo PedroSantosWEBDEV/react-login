@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './fontawesome-free-5.15.4-web/css/fontawesome.min.css'
 import md5 from "md5"
 import "./App.css";
-
+import "./util.css";
+import Background from './imagens/bg-01.jpg';
 import Axios from "axios";
 
 
@@ -10,10 +12,8 @@ export default function App() {
   const [values, setValues] = useState();
 
   const handleRegisterGame = () => {
-    Axios.post("http://localhost:3001/register", {
-      firstname: values.firstname,
-      lastname: values.lastname,
-      email: values.email,
+    Axios.post("http://localhost:3001/search", {
+      username: values.username,
       password: md5(values.password),
     }).then();
   };
@@ -26,46 +26,37 @@ export default function App() {
   };
 
   return (
-    <html>
-      <body class="text-center">
-
-        <main class="form-signin">
-          <form>
-            <h1 class="h3 mb-3 fw-normal">Por favor cadastre-se</h1>
-
-            <div className="form-floating">
-              <input type="text" className="form-control" name="firstname" placeholder="First name" onChange={handleaddValues} />
-              <label for="floatingInput">Nome</label>
+        <div className="limiter">
+          <div className="container-login100" style={{ backgroundImage: `url(${Background})` }}>
+            <div className="wrap-login100">
+              <form className="login100-form validate-form">
+                <span className="login100-form-logo">
+                  <i className="zmdi zmdi-landscape"></i>
+                </span>
+                <span className="login100-form-title p-b-34 p-t-27">
+                  Log in
+                </span>
+                <div className="wrap-input100 validate-input" data-validate="Enter username">
+                  <input className="input100" type="text" name="username" placeholder="Username" onChange={handleaddValues} />
+                  
+                </div>
+                <div className="wrap-input100 validate-input" data-validate="Enter password">
+                  <input className="input100" type="password" name="password" placeholder="Password" onChange={handleaddValues} />
+                  
+                </div>
+                <div className="container-login100-form-btn">
+                  <button className="login100-form-btn" onClick={handleRegisterGame}>
+                    Login
+                  </button>
+                </div>
+                <div className="text-center p-t-90">
+                  <a className="txt1" href="#top">
+                    Forgot Password?
+                  </a>
+                </div>
+              </form>
             </div>
-
-            <div className="form-floating">
-              <input type="text" className="form-control" name="lastname" placeholder="Last name" onChange={handleaddValues} />
-              <label for="floatingInput">Sobrenome</label>
-            </div>
-
-            <div class="form-floating">
-              <input type="email" class="form-control" name="email" placeholder="name@example.com" onChange={handleaddValues} />
-              <label for="floatingInput">Email</label>
-            </div>
-            <div class="form-floating">
-              <input type="password" class="form-control" name="password" placeholder="Password" onChange={handleaddValues} />
-              <label for="floatingPassword">Senha</label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={handleRegisterGame}>Inscrever-se</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
-          </form>
-          {/* <Router>
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Routes>
-                <Route exact path='/'  />
-            <Route path="/sign-in" />
-          </Routes>
+          </div>
         </div>
-        </div>
-      </Router> */}
-        </main>
-      </body>
-    </html>
   );
 }
